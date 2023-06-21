@@ -1,4 +1,4 @@
-[stopping point database](https://remix.run/docs/en/main/tutorials/jokes#database)
+[stopping point mutations](https://remix.run/docs/en/main/tutorials/jokes#mutations)
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
