@@ -1,4 +1,4 @@
-[stopping point ](https://remix.run/docs/en/main/tutorials/jokes#unexpected-errors)
+[stopping point ](https://remix.run/docs/en/main/tutorials/jokes#javascript)
 
 # Welcome to Remix!
 
