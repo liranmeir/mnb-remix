@@ -1,7 +1,4 @@
-import type {
-  ActionArgs,
-  LoaderArgs,
-} from "@remix-run/node";
+import type { ActionArgs, LoaderArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import {
   isRouteErrorResponse,
@@ -12,10 +9,7 @@ import {
 
 import { db } from "~/utils/db.server";
 import { badRequest } from "~/utils/request.server";
-import {
-  getUserId,
-  requireUserId,
-} from "~/utils/session.server";
+import { getUserId, requireUserId } from "~/utils/session.server";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const userId = await getUserId(request);
@@ -42,10 +36,7 @@ export const action = async ({ request }: ActionArgs) => {
   const form = await request.formData();
   const content = form.get("content");
   const name = form.get("name");
-  if (
-    typeof content !== "string" ||
-    typeof name !== "string"
-  ) {
+  if (typeof content !== "string" || typeof name !== "string") {
     return badRequest({
       fieldErrors: null,
       fields: null,
@@ -86,22 +77,14 @@ export default function NewJokeRoute() {
               defaultValue={actionData?.fields?.name}
               name="name"
               type="text"
-              aria-invalid={Boolean(
-                actionData?.fieldErrors?.name
-              )}
+              aria-invalid={Boolean(actionData?.fieldErrors?.name)}
               aria-errormessage={
-                actionData?.fieldErrors?.name
-                  ? "name-error"
-                  : undefined
+                actionData?.fieldErrors?.name ? "name-error" : undefined
               }
             />
           </label>
           {actionData?.fieldErrors?.name ? (
-            <p
-              className="form-validation-error"
-              id="name-error"
-              role="alert"
-            >
+            <p className="form-validation-error" id="name-error" role="alert">
               {actionData.fieldErrors.name}
             </p>
           ) : null}
@@ -112,13 +95,9 @@ export default function NewJokeRoute() {
             <textarea
               defaultValue={actionData?.fields?.content}
               name="content"
-              aria-invalid={Boolean(
-                actionData?.fieldErrors?.content
-              )}
+              aria-invalid={Boolean(actionData?.fieldErrors?.content)}
               aria-errormessage={
-                actionData?.fieldErrors?.content
-                  ? "content-error"
-                  : undefined
+                actionData?.fieldErrors?.content ? "content-error" : undefined
               }
             />
           </label>
@@ -134,10 +113,7 @@ export default function NewJokeRoute() {
         </div>
         <div>
           {actionData?.formError ? (
-            <p
-              className="form-validation-error"
-              role="alert"
-            >
+            <p className="form-validation-error" role="alert">
               {actionData.formError}
             </p>
           ) : null}
@@ -152,6 +128,7 @@ export default function NewJokeRoute() {
 
 export function ErrorBoundary() {
   const error = useRouteError();
+  console.error(error);
 
   if (isRouteErrorResponse(error) && error.status === 401) {
     return (
