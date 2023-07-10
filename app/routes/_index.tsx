@@ -12,12 +12,12 @@ export default function IndexRoute() {
     <div className="container">
       <div className="content">
         <h1>
-          Remix <span>Jokes!</span>
+          MNB <span>Videos</span>
         </h1>
         <nav>
           <ul>
             <li>
-              <Link to="jokes">Read Jokes</Link>
+              <Link to="jokes">View</Link>
             </li>
           </ul>
         </nav>
