@@ -35,11 +35,11 @@ import type {
   }
   
   function validateUrl(url: string) {
-    const urls = ["/jokes", "/", "https://remix.run"];
+    const urls = ["/videos", "/", "https://remix.run"];
     if (urls.includes(url)) {
       return url;
     }
-    return "/jokes";
+    return "/videos";
   }
   
   export const action = async ({ request }: ActionArgs) => {
@@ -48,7 +48,7 @@ import type {
     const password = form.get("password");
     const username = form.get("username");
     const redirectTo = validateUrl(
-      (form.get("redirectTo") as string) || "/jokes"
+      (form.get("redirectTo") as string) || "/videos"
     );
     if (
       typeof loginType !== "string" ||
@@ -238,7 +238,7 @@ import type {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/jokes">Jokes</Link>
+              <Link to="/videos">Videos</Link>
             </li>
           </ul>
         </div>

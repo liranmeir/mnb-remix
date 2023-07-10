@@ -8,10 +8,10 @@
 :root {
   --hs-links: 48 100%;
   --color-foreground: hsl(0, 0%, 100%);
-  --color-background: hsl(261, 70%, 19%);
+  --color-background: hsl(237, 69%, 19%);
   --color-links: hsl(var(--hs-links) 50%);
   --color-links-hover: hsl(var(--hs-links) 45%);
-  --color-border: hsl(257, 85%, 38%);
+  --color-border: hsl(228, 46%, 46%);
   --color-invalid: hsl(356, 100%, 71%);
   --gradient-background: radial-gradient(
     circle,

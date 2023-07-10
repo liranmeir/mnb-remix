@@ -65,7 +65,7 @@ function Document({
         />
         <meta name="twitter:creator" content="@remix_run" />
         <meta name="twitter:site" content="@remix_run" />
-        <meta name="twitter:title" content="Remix Jokes" />
+        <meta name="twitter:title" content="MNB" />
         <Meta />
         {title ? <title>{title}</title> : null}
         <Links />
