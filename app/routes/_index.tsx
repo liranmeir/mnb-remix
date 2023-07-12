@@ -11,13 +11,13 @@ export default function IndexRoute() {
   return (
     <div className="container">
       <div className="content">
-        <h1>
+        <h1 className="text-3xl font-bold underline">
           MNB <span>Videos</span>
         </h1>
         <nav>
           <ul>
             <li>
-              <Link to="jokes">View</Link>
+              <Link to="videos">View</Link>
             </li>
           </ul>
         </nav>
