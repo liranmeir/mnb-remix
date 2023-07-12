@@ -29,7 +29,7 @@ export default function VideosRoute() {
 
   return (
     <div className="videos-layout">
-      <header className="bg-blue-500 py-4">
+      <header className="py-4 bg-blue-900">
         <div className="container max-auto flex items-center justify-between px-4">
           <h1 className="text-white text-2xl font-bold">
             <Link to="/" title="MNB Videos">

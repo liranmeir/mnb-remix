@@ -51,7 +51,7 @@ function Document({ children, title }: PropsWithChildren<{ title?: string }>) {
         {title ? <title>{title}</title> : null}
         <Links />
       </head>
-      <body>
+      <body className="bg-gradient-to-l from-blue-200 to-white">
         {children}
         <Scripts />
         <LiveReload />

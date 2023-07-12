@@ -4,7 +4,9 @@ export function VideoCard() {
       <iframe
         loading="lazy"
         className="flex-1 w-full"
-        src={'https://www.youtube.com/embed/DR1w_A48OhE?autoplay=0&modestbranding=1&showinfo=0&color=white'}
+        src={
+          "https://www.youtube.com/embed/DR1w_A48OhE?autoplay=0&modestbranding=1&showinfo=0&color=white"
+        }
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
