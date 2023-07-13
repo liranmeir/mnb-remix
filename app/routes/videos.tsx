@@ -49,7 +49,9 @@ export default function VideosRoute() {
               </Form>
             </div>
           ) : (
-            <Link to="/login">Login</Link>
+            <Link to="/login" className="btn">
+              Login
+            </Link>
           )}
         </div>
       </header>
