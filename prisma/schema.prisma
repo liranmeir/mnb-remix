@@ -28,3 +28,30 @@ model Joke {
   name       String
   content    String
 }
+
+model VideoMetadata {
+  id               String            @id @default(uuid())
+  youtubeVideoId   String
+  playerStatistics PlayerStatistic[]
+}
+
+model PlayerStatistic {
+  id              String         @id @default(uuid())
+  playerId        String
+  player          Player         @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  videoMetadata   VideoMetadata? @relation(fields: [videoMetadataId], references: [id])
+  videoMetadataId String?
+  points          Int
+  assists         Int
+  steals          Int
+}
+
+model Player {
+  id              String            @id @default(uuid())
+  name            String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  playerStatistic PlayerStatistic[]
+}
