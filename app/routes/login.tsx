@@ -226,6 +226,9 @@ export default function Login() {
               Submit
             </button>
           </Form>
+          <Form action="/auth/google" method="post">
+            <button>Login with Google</button>
+          </Form>
         </div>
       </div>
 

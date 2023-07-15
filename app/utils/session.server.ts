@@ -49,7 +49,7 @@ if (!sessionSecret) {
   throw new Error("SESSION_SECRET must be set");
 }
 
-const storage = createCookieSessionStorage({
+export const storage = createCookieSessionStorage({
   cookie: {
     name: "RJ_session",
     // normally you want this to be `secure: true`
