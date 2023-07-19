@@ -14,6 +14,7 @@ export const links: LinksFunction = () => [
 ];
 
 export const loader = async ({ request }: LoaderArgs) => {
+  //TODO: make sure user is loaded from db
   const jokeListItems = await db.joke.findMany({
     orderBy: { createdAt: "desc" },
     select: { id: true, name: true },
