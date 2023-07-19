@@ -20,8 +20,20 @@ authenticator.use(
     async ({ accessToken, refreshToken, extraParams, profile }) => {
       // Get the user data from your DB or API using the tokens and profile
       console.log(profile);
-      return { email: profile.emails[0].value };
-      // return User.findOrCreate({ email: profile.emails[0].value });
+      const { displayName, emails, photos } = profile;
+
+      try {
+        //TODO: stopping point upsert user in db
+        // but first do a schema change from username and email!
+        // return User.findOrCreate({ email: profile.emails[0].value });
+        return {
+          email: emails[0].value,
+          displayName,
+          photoUrl: photos[0].value,
+        };
+      } catch (error) {
+        console.log(error);
+      }
     }
   )
 );

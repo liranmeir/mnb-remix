@@ -1,7 +1,4 @@
-import {
-  createCookieSessionStorage,
-  redirect,
-} from "@remix-run/node";
+import { createCookieSessionStorage, redirect } from "@remix-run/node";
 import bcrypt from "bcryptjs";
 
 import { db } from "./db.server";
@@ -11,10 +8,7 @@ type LoginForm = {
   username: string;
 };
 
-export async function register({
-  password,
-  username,
-}: LoginForm) {
+export async function register({ password, username }: LoginForm) {
   const passwordHash = await bcrypt.hash(password, 10);
   const user = await db.user.create({
     data: { passwordHash, username },
@@ -22,10 +16,7 @@ export async function register({
   return { id: user.id, username };
 }
 
-export async function login({
-  password,
-  username,
-}: LoginForm) {
+export async function login({ password, username }: LoginForm) {
   const user = await db.user.findUnique({
     where: { username },
   });
@@ -33,10 +24,7 @@ export async function login({
     return null;
   }
 
-  const isCorrectPassword = await bcrypt.compare(
-    password,
-    user.passwordHash
-  );
+  const isCorrectPassword = await bcrypt.compare(password, user.passwordHash);
   if (!isCorrectPassword) {
     return null;
   }
@@ -51,7 +39,7 @@ if (!sessionSecret) {
 
 export const storage = createCookieSessionStorage({
   cookie: {
-    name: "RJ_session",
+    name: "MNB_session",
     // normally you want this to be `secure: true`
     // but that doesn't work on localhost for Safari
     // https://web.dev/when-to-use-local-https/
@@ -70,6 +58,7 @@ function getUserSession(request: Request) {
 
 export async function getUserId(request: Request) {
   const session = await getUserSession(request);
+  console.log(session);
   const userId = session.get("userId");
   if (!userId || typeof userId !== "string") {
     return null;
@@ -84,9 +73,7 @@ export async function requireUserId(
   const session = await getUserSession(request);
   const userId = session.get("userId");
   if (!userId || typeof userId !== "string") {
-    const searchParams = new URLSearchParams([
-      ["redirectTo", redirectTo],
-    ]);
+    const searchParams = new URLSearchParams([["redirectTo", redirectTo]]);
     throw redirect(`/login?${searchParams}`);
   }
   return userId;
@@ -119,10 +106,7 @@ export async function logout(request: Request) {
   });
 }
 
-export async function createUserSession(
-  userId: string,
-  redirectTo: string
-) {
+export async function createUserSession(userId: string, redirectTo: string) {
   const session = await storage.getSession();
   session.set("userId", userId);
   return redirect(redirectTo, {

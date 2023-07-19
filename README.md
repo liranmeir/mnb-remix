@@ -1,5 +1,3 @@
-[stopping point ](https://remix.run/docs/en/main/tutorials/jokes#javascript)
-
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)

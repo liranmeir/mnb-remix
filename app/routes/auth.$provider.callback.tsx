@@ -5,7 +5,7 @@ import { authenticator } from "~/server/auth.server";
 export let loader = async ({ request, params }: LoaderArgs) => {
   const provider = params.provider ?? "";
   return authenticator.authenticate(provider, request, {
-    successRedirect: "/dashboard",
+    successRedirect: "/videos",
     failureRedirect: "/login",
   });
 };

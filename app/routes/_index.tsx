@@ -11,7 +11,7 @@ export const links: LinksFunction = () => [
 
 export let loader = async ({ request, params }: LoaderArgs) => {
   const user = await authenticator.isAuthenticated(request, {
-    successRedirect: "/dashboard",
+    successRedirect: "/videos",
   });
   return user;
 };

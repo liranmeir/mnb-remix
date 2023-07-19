@@ -226,8 +226,18 @@ export default function Login() {
               Submit
             </button>
           </Form>
+          <br />
           <Form action="/auth/google" method="post">
-            <button>Login with Google</button>
+            <button className="google-btn inline-flex items-center justify-center bg-white rounded-lg px-4 py-2 shadow-md cursor-pointer">
+              <img
+                className="w-6 h-6 mr-2"
+                src="https://developers.google.com/identity/images/g-logo.png"
+                alt="Google Logo"
+              ></img>
+              <span className="text-blue-600 font-medium">
+                Sign in with Google
+              </span>
+            </button>
           </Form>
         </div>
       </div>
